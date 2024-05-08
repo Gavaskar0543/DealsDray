@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const employeeController = require('../../../../Controller/index');
-router.get('/check-server-status',(req,res)=>{
-    return res.status(200).json({
-        message:"ok"
-    })
-})
-router.post('/new',employeeController.newEmployee);
+
+router.post('/new',passport.authenticate('jwt',{session:false}),employeeController.newEmployee);
 
 module.exports = router;

@@ -69,7 +69,7 @@ module.exports.verifyAdmin = async (req ,res)=>{
         success:true,
         message:"login successfull!",
         data:{
-        token:  jwt.sign(admin.toJSON,process.env.JWT_SECTET_KEY, { expiresIn: '1h' })
+        token:  jwt.sign(admin.toJSON(), process.env.JWT_SECRET_KEY, { expiresIn: '100000' })
         }
       })
     }

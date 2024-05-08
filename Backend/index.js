@@ -3,10 +3,13 @@ require('dotenv').config();
 const port = process.env.PORT;
 const app =  express();
 const db = require('./Config/mongoose')
+const passport = require('passport');
+const jwtStrategy = require('./Config/passport_jwt');
 
 //middlewares
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(passport.initialize());
 
 //router
 app.use('/',require('./Router'))
