@@ -76,6 +76,13 @@ module.exports.verifyAdmin = async (req ,res)=>{
   }
 
   //no match found return 404
+  else{
+    return res.status(404).json({
+      success:false,
+      message:"No User Found!"
+
+    })
+  }
   }
   catch(error){
     return res.status(500).json({
